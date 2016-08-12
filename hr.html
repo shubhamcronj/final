@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Employee Management</title>
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<script type="text/javascript" src="js/hr.js"></script>
+</head>
+<body>
+<header>
+		<h1>Employee Management System</h1>
+</header>
+<section>
+	<div onclick="view()">
+		<h3>View</h3>
+	</div>
+	<div>
+		<h3 onclick="add_emp()">Add Employee</h3>
+	</div>
+	<div>
+	<h3 onclick="give_remark()">Remarks</h3>
+		
+	</div>
+	<div onclick="logout()">
+	<h3>Logout</h3>
+		
+	</div>
+</section>
+<div id="hr_article">
+
+	<div id="view_block">
+		<label>Search for employee: </label><input type="text" id="searchId">
+		<button onclick="search()">Search</button>
+		<br /><br /><br />
+		<p >Total number of registered Employees: <span id="eCount"></span></p>
+		<div id="dispFound">
+		<div id="eDetails">
+			<h2>Employee Detais</h2>
+		</div>
+		<h3>First Name : <span id="dispFirst"></span></h3>
+		<h3>Last Name : <span id="dispLast"></span></h3>
+		<h3>Age : <span id="dispAge"></span></h3>
+		</div>
+	</div>
+
+	<div id="add_block">
+		<br />
+		<input type="text" value="First Name" id="eFirst" />
+		<br /><br />
+		<input type="text" value="Last Name" id="eLast" />
+		<br /><br />
+		<input type="text" value="Age" id="eAge" />
+		<br /><br />
+		<input type="text" value="Emp ID" id="eId" />
+		<br /><br />
+		<input type="password" value="pass" id="ePass" />
+		<br /><br />
+		<button onclick="regEmployee()">Register Employee</button>
+		<br />
+	</div>
+
+	<div id="remark_block">
+		<label>Search for employee: </label><input type="text" id="rSearch">
+		<button onclick="putRemarks()">Search</button>
+		<br /><br /><br />
+		<div id="giveRemarks">
+		<div><h3>Enter Remarks</h3></div>
+		<br/>
+		<textarea id="remarkField"></textarea>
+		<br/>
+		<button onclick="submitRemark()">Submit</button>
+		<br/>
+		</div>
+	</div>
+</div>
+</nav>
+</body>
+</html>

@@ -1,0 +1,133 @@
+body{
+	margin: 0;
+	padding: 0;
+	background-color: #ddd;
+	text-align: center;
+}
+header{
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background-color: #008080;
+	color: white;
+}
+h1{
+	margin: 0;
+	padding: 10px;
+}
+article{
+	margin: auto;
+	margin-top: 100px;
+	width: 300px;
+	vertical-align: middle;
+	text-align: center;
+	background-color: #004040;
+	border-radius: 10px 0 10px 0;
+	padding-bottom: 10px;
+}
+article h2{
+	margin: 0;
+	padding: 0;
+	color: white;
+	border-radius: 10px 0 0 0;
+	background: #008080;
+}
+article input {
+	text-align: center;
+}
+section{
+	width: 100%;
+	margin: auto;
+}
+section div{
+	margin: 0;
+	padding: 10px 0 10px 0;
+	text-align: center;
+	border-bottom: 1px solid black;
+	display: inline-block;
+	width: 24%;
+}
+section div:hover{
+	color: white;
+	background-color: #009090;
+	cursor: pointer;
+}
+section div h3{
+	margin: 0;
+	padding: 0;
+}
+#hr_article{
+	margin-top: 50px;
+}
+#view_block{
+	display: none;
+}
+#add_block{
+	display: none;
+	background-color: #004040;
+	width: 20%;
+	margin: auto;
+	padding-bottom: 10px;
+	border-radius: 10px 0 10px 0px;
+}
+#add_block input{
+	text-align: center;
+}
+#remark_block{
+	display: none;
+	margin: 0;
+	padding: 0;
+}
+#giveRemarks{
+	margin: auto;
+	color: white;
+	background-color: #004040;
+	width: 20%;
+	border-radius: 10px 0 10px 0;
+}
+#giveRemarks div{
+	margin: 0;
+	padding: 0;
+	background-color: #008080;
+}
+#giveRemarks h3{
+	margin: 0;
+	padding: 0;
+}
+#dispFound{
+	display: none;
+	background-color: #004040;
+	width: 30%;
+	margin: auto;
+	padding-bottom: 10px;
+	border-radius: 10px 0 10px 0px;
+	color: white;
+	text-align: center;
+}
+#eDetails{
+	margin: 0;
+	padding: 0;
+	color: white;
+}
+#eDetails h2{
+	margin: 0;
+	padding: 0;
+	background: #008080;
+}
+#empHtml{
+	display: none;
+	color: white;
+	background-color: #004040;
+	width: 20%;
+	margin: auto;
+	margin-top:200px;
+}
+#empHtml div{
+	margin: 0;
+	padding: 0;
+	background-color: #008080;
+}
+#empHtml h3{
+	margin: 0;
+	padding: 0;
+}
