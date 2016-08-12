@@ -1,4 +1,4 @@
-if(localStorage.auth == "false" || localStorage.auth == undefined){
+if(localStorage.auth != "hr" || localStorage.auth == undefined){
 	window.location.href = 'index.html';
 }
 

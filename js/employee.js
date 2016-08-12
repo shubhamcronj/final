@@ -1,4 +1,4 @@
-if(localStorage.auth == "false" || localStorage.auth == undefined){
+if(localStorage.auth != "emp" || localStorage.auth == undefined){
 	window.location.href = 'index.html';
 }
 var logout = function(){

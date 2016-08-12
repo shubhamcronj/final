@@ -13,7 +13,7 @@ function authenticate()
 	if(id == hr_id && pass == hr_pass)
 	{
 		window.location.href = 'hr.html';
-		localStorage.setItem("auth", true);
+		localStorage.setItem("auth", "hr");
 	}
 
 	else if(true){
@@ -26,7 +26,7 @@ function authenticate()
 			{
 				flag =true;
 				window.location.href = 'employee.html';
-				localStorage.setItem("auth", true);
+				localStorage.setItem("auth", "emp");
 				localStorage.setItem("eLog", i);
 				break;
 			}
