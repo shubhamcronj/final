@@ -11,14 +11,16 @@
 		<h1>Employee Management System</h1>
 </header>
 <section>
-	<div onclick="view()">
+	<div onclick="displayViewBlock()">
 		<h3>View</h3>
 	</div>
+
 	<div>
-		<h3 onclick="add_emp()">Add Employee</h3>
+		<h3 onclick="displayAddEmployeeBlock()">Add Employee</h3>
 	</div>
+	
 	<div>
-	<h3 onclick="give_remark()">Remarks</h3>
+	<h3 onclick="displayAddRemarksBlock()">Remarks</h3>
 		
 	</div>
 	<div onclick="logout()">
@@ -28,9 +30,9 @@
 </section>
 <div id="hr_article">
 
-	<div id="view_block">
+	<div id="ViewBlock">
 		<label>Search for employee: </label><input type="text" id="searchId">
-		<button onclick="search()">Search</button>
+		<button onclick="getEmployeeIndex()">Search</button>
 		<br /><br /><br />
 		<p >Total number of registered Employees: <span id="eCount"></span></p>
 		<div id="dispFound">
@@ -43,18 +45,23 @@
 		</div>
 	</div>
 
-	<div id="add_block">
+	<div id="AddEmployeeBlock">
 		<br />
-		<input type="text" value="First Name" id="eFirst" />
+		<input type="text" placeholder="First Name" id="eFirst" />
 		<br /><br />
-		<input type="text" value="Last Name" id="eLast" />
+		
+		<input type="text" placeholder="Last Name" id="eLast" />
 		<br /><br />
-		<input type="text" value="Age" id="eAge" />
+		
+		<input type="text" placeholder="Age" id="eAge" />
 		<br /><br />
-		<input type="text" value="Emp ID" id="eId" />
+		
+		<input type="text" placeholder="Emp ID" id="eId" />
 		<br /><br />
-		<input type="password" value="pass" id="ePass" />
+		
+		<input type="password" placeholder="Password" id="ePass" />
 		<br /><br />
+		
 		<button onclick="regEmployee()">Register Employee</button>
 		<br />
 	</div>

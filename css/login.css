@@ -59,10 +59,10 @@ section div h3{
 #hr_article{
 	margin-top: 50px;
 }
-#view_block{
+#viewBlock{
 	display: none;
 }
-#add_block{
+#AddEmployeeBlock{
 	display: none;
 	background-color: #004040;
 	width: 20%;
@@ -70,7 +70,7 @@ section div h3{
 	padding-bottom: 10px;
 	border-radius: 10px 0 10px 0px;
 }
-#add_block input{
+#AddEmployeeBlock input{
 	text-align: center;
 }
 #remark_block{

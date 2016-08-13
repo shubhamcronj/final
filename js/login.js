@@ -1,9 +1,43 @@
 // declaring hr userid and password
+
+
+
 var hr_id = "cronj";
 var hr_pass = "hr";
+
 localStorage.setItem("auth", false);
 localStorage.setItem("eLog", 0);
 // authentication function
+
+var validateUser = function(){
+	
+	var uname = document.getElementById('id');
+	
+	if(!uname.value)
+	{
+		uname.style.borderColor="red";
+	}
+	else
+	{
+		uname.style.borderColor="green";
+	}
+
+	
+}
+
+var validatePass = function(){
+	
+	var upass = document.getElementById('pass');
+	if(!upass.value)
+	{
+		upass.style.borderColor="red";
+	}
+	else
+	{
+		upass.style.borderColor="green";
+	}
+}
+
 function authenticate()
 {
 	var id = document.getElementById("id").value;
@@ -42,23 +76,3 @@ function authenticate()
 		alert("Wrong Credentials");
 	}
 }
-/*else if(true){
-		var flag = false, index = 0;
-		for(i=0;i<emArr.length;i++)
-		{	
-			document.getElementById('ereg').style.display="none";
-			if(uname.value == emArr[i].eid && upass.value == emArr[i].epass)
-			{
-			document.getElementById('greet').innerHTML = "Hi! " + emArr[i].first;
-			flag = true;
-			index = i;
-			}
-			if(flag)
-			{
-				document.getElementById('emp_block').style.display = "block";
-				document.getElementById('efirst').innerHTML = "First Name: "+ emArr[index].first;
-				document.getElementById('elast').innerHTML = "Last Name : " + emArr[index].last;
-				document.getElementById('eage').innerHTML = "Age : " + emArr[index].age;
-			}
-		}
-*/

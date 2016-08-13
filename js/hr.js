@@ -18,14 +18,14 @@ var logout = function(){
 	window.location.href = 'index.html';
 }
 
-var view = function(){
-	document.getElementById('view_block').style.display = "block";
-	document.getElementById('add_block').style.display = "none";
+var displayViewBlock = function(){
+	document.getElementById('viewBlock').style.display = "block";
+	document.getElementById('AddEmployeeBlock').style.display = "none";
 	document.getElementById('remark_block').style.display = "none";
 	document.getElementById('eCount').innerHTML = localStorage.length-2;	
 }
 
-var search = function(){
+var getEmployeeIndex = function(){
 	var searchId = document.getElementById('searchId').value;
 	l = localStorage.length-2;
 	var objKey = "";
@@ -56,15 +56,15 @@ var search = function(){
 		}
 }
 
-var add_emp = function(){
-	document.getElementById('view_block').style.display = "none";
-	document.getElementById('add_block').style.display = "block";
+var displayAddEmployeeBlock = function(){
+	document.getElementById('viewBlock').style.display = "none";
+	document.getElementById('AddEmployeeBlock').style.display = "block";
 	document.getElementById('remark_block').style.display = "none";
 }
 
-var give_remark = function(){
-	document.getElementById('view_block').style.display = "none";
-	document.getElementById('add_block').style.display = "none";
+var displayAddRemarksBlock = function(){
+	document.getElementById('viewBlock').style.display = "none";
+	document.getElementById('AddEmployeeBlock').style.display = "none";
 	document.getElementById('remark_block').style.display = "block";
 }
 
@@ -85,6 +85,7 @@ var regEmployee = function(){
 
 var rindex=0;
 var putRemarks = function(){
+
 	var searchId = document.getElementById('rSearch').value;
 	l = localStorage.length - 2;
 	var objKey = "";

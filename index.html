@@ -15,9 +15,9 @@
 		<h2>LOGIN</h2>
 		</div>
 		<br />
-		<input type="text" value="USERNAME" id="id" >
+		<input type="text" placeholder="USERNAME" id="id" onblur="validateUser()" >
 		<br /><br />
-		<input type="password" value="pass" id="pass" >
+		<input type="password" placeholder="PASSWORD" id="pass" onblur="validatePass()" >
 		<br /><br />
 		<button onclick="authenticate()">Sign In</button>
 		<br />
