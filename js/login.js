@@ -1,53 +1,83 @@
 // declaring hr userid and password
+const hrUsername = "cronj";
+const hrPassword = "hr";
 
+const emptyColor = "red";
+const filledColor = "green";
 
+const EMPTY = "";
 
-var hr_id = "cronj";
-var hr_pass = "hr";
-
-localStorage.setItem("auth", false);
+localStorage.setItem("signedIn", false);
 localStorage.setItem("eLog", 0);
-// authentication function
 
-var validateUser = function(){
+// signedInentication function
+function validateUser(){
 	
-	var uname = document.getElementById('id');
+	var username = document.getElementById('username');
 	
-	if(!uname.value)
+	if(!username.value)
 	{
-		uname.style.borderColor="red";
+		username.style.borderColor=emptyColor;
 	}
 	else
 	{
-		uname.style.borderColor="green";
+		username.style.borderColor=filledColor;
 	}
 
 	
 }
 
-var validatePass = function(){
+function validatePass(){
 	
-	var upass = document.getElementById('pass');
-	if(!upass.value)
+	var password = document.getElementById('password');
+	if(!password.value)
 	{
-		upass.style.borderColor="red";
+		password.style.borderColor=emptyColor;
 	}
 	else
 	{
-		upass.style.borderColor="green";
+		password.style.borderColor=filledColor;
 	}
 }
 
 function authenticate()
 {
-	var id = document.getElementById("id").value;
-	var pass = document.getElementById("pass").value;
+	var username = document.getElementById("username").value;
+	var password = document.getElementById("password").value;
+
+	if(!username && !password)
+	{
+		document.getElementById("errorMessage").innerHTML = "Please enter Username and Password";
+		document.getElementById("errorMessageBlock").style.display = "block";
+		hide("errorMessageBlock",3);
+		return false;
+	}
+	else if(!password)
+	{
+		document.getElementById("errorMessage").innerHTML = "Please enter Password";
+		document.getElementById("errorMessageBlock").style.display = "block";
+		document.getElementById("password").value = EMPTY;
+		hide("errorMessageBlock",3);
+		return false;
+	}
+	else if(!username)
+	{
+		document.getElementById("errorMessage").innerHTML = "Please enter Username";
+		document.getElementById("errorMessageBlock").style.display = "block";
+		document.getElementById("password").value = EMPTY;
+		hide("errorMessageBlock",3);
+		return false;
+	}
+
+	else
+	{
 	var l = localStorage.length - 2;
 
-	if(id == hr_id && pass == hr_pass)
+	if(username == hrUsername && password == hrPassword)
 	{
 		window.location.href = 'hr.html';
-		localStorage.setItem("auth", "hr");
+		localStorage.setItem("signedIn", "hr");
+		return false;
 	}
 
 	else if(true){
@@ -56,23 +86,32 @@ function authenticate()
 		{
 			objKey = "eObject"+i;
 			var myObject = JSON.parse(localStorage.getItem(objKey));
-			if(myObject.eid == id && myObject.epass == pass)
+			if(myObject.eid == username && myObject.epass == password)
 			{
 				flag =true;
 				window.location.href = 'employee.html';
-				localStorage.setItem("auth", "emp");
+				localStorage.setItem("signedIn", "emp");
 				localStorage.setItem("eLog", i);
+				return false;
 				break;
 			}
 		}
 		if(!flag)
 		{
-			alert("Wrong Credentials");
+			document.getElementById("errorMessage").innerHTML = "Wrong Credentials";
+			document.getElementById("errorMessageBlock").style.display = "block";
+			document.getElementById("password").value = EMPTY;
+			hide("errorMessageBlock",3);
+			return false;
 		}
 	}
+}
+return false;
+}
 
-	else
-	{
-		alert("Wrong Credentials");
-	}
+function hide(element, time){
+	setTimeout(function(){
+
+		document.getElementById(element).style.display = "none";
+	  }, time*1000);
 }

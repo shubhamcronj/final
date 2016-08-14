@@ -15,12 +15,17 @@
 		<h2>LOGIN</h2>
 		</div>
 		<br />
-		<input type="text" placeholder="USERNAME" id="id" onblur="validateUser()" >
+		<form onsubmit="return authenticate()">
+		<input type="text" placeholder="USERNAME" id="username" onblur="validateUser()" >
 		<br /><br />
-		<input type="password" placeholder="PASSWORD" id="pass" onblur="validatePass()" >
+		<input type="password" placeholder="PASSWORD" id="password" onblur="validatePass()" >
 		<br /><br />
-		<button onclick="authenticate()">Sign In</button>
+		<input type="submit" value="Sign In">
 		<br />
+		</form>
 	</article>
+	<div id="errorMessageBlock" >
+		<p id="errorMessage">hi</p>
+	</div>
 </body>
 </html>

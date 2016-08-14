@@ -1,10 +1,14 @@
-if(localStorage.auth != "hr" || localStorage.auth == undefined){
-	window.location.href = 'index.html';
+const loginPage = "index.html";
+
+
+if(localStorage.signedIn != "hr" || localStorage.signedIn == undefined)
+{
+	window.location.href = loginPage;
 }
 
-function employee(first, last, age, eid, epass, remarks){
-	this.first = first;
-	this.last  = last;
+function employee(firstName, lastName, age, eid, epass, remarks){
+	this.firstName = firstName;
+	this.lastName  = lastName;
 	this.age   = age;
 	this.eid   = eid;
 	this.epass = epass;
@@ -14,8 +18,8 @@ function employee(first, last, age, eid, epass, remarks){
 var eArray = new Array();
 
 var logout = function(){
-	localStorage.auth == false;
-	window.location.href = 'index.html';
+	localStorage.signedIn == false;
+	window.location.href = loginPage;
 }
 
 var displayViewBlock = function(){
@@ -41,8 +45,8 @@ var getEmployeeIndex = function(){
 			found = true;
 			index = i;
 
-			document.getElementById('dispFirst').innerHTML = myObject.first;
-			document.getElementById('dispLast').innerHTML = myObject.last;
+			document.getElementById('dispFirst').innerHTML = myObject.firstName;
+			document.getElementById('dispLast').innerHTML = myObject.lastName;
 			document.getElementById('dispAge').innerHTML = myObject.age;
 			document.getElementById('dispFound').style.display = "block";
 

@@ -1,20 +1,20 @@
-if(localStorage.auth != "emp" || localStorage.auth == undefined){
+if(localStorage.signedIn != "emp" || localStorage.signedIn == undefined){
 	window.location.href = 'index.html';
 }
 
 var logout = function(){
-	localStorage.auth == false;
+	localStorage.signedIn == false;
 	window.location.href = 'index.html';
 }
 
-var view = function()
+var showProfile = function()
 {
 	eindex = localStorage.eLog;
-	document.getElementById('empHtml').style.display = "block";
+	document.getElementById('employeeProfileBlock').style.display = "block";
 	objKey = "eObject"+eindex;
 	var myObject = JSON.parse(localStorage.getItem(objKey));
-	document.getElementById('eFirst').innerHTML = myObject.first;
-	document.getElementById('eLast').innerHTML = myObject.last;
-	document.getElementById('eAge').innerHTML = myObject.age;
-	document.getElementById('eRemarks').innerHTML = myObject.remarks;
+	document.getElementById('firstName').innerHTML = myObject.firstName;
+	document.getElementById('lastName').innerHTML = myObject.lastName;
+	document.getElementById('age').innerHTML = myObject.age;
+	document.getElementById('remarks').innerHTML = myObject.remarks;
 }

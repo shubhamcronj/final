@@ -63,7 +63,6 @@ section div h3{
 	display: none;
 }
 #AddEmployeeBlock{
-	display: none;
 	background-color: #004040;
 	width: 20%;
 	margin: auto;
@@ -116,7 +115,7 @@ section div h3{
 	background: #008080;
 	border-radius: 10px 0 0 0;
 }
-#empHtml{
+#employeeProfileBlock{
 	display: none;
 	color: white;
 	background-color: #004040;
@@ -126,16 +125,23 @@ section div h3{
 	border-radius: 10px 0 10px 0;
 	padding-bottom: 10px;
 }
-#empHtml div{
+#employeeProfileBlock div{
 	margin: 0;
 	padding: 0;
 	background-color: #008080;
 	border-radius: 10px 0 0px 0;
 }
 }
-#empHtml h2{
+#employeeProfileBlock h2{
 	margin: 0;
 	padding: 0;
 	border-radius: 10px 0 0 0;
 }
+}
+#errorMessage{
+	color: red;
+}
+#errorMessageBlock{
+	display: none;
+	color: red;
 }
