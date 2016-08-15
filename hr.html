@@ -5,6 +5,7 @@
 	<link rel="icon" href="ems.png" type="image/gif" sizes="16x16">
 	<link rel="stylesheet" type="text/css" href="css/login.css">
 	<script type="text/javascript" src="js/hr.js"></script>
+	<script type="text/javascript" src="js/validation.js"></script>
 </head>
 <body>
 <header>
@@ -19,7 +20,7 @@
 		<h3>Add Employee</h3>
 	</div>
 	
-	<div onclick="displayAddRemarksBlock()">
+	<div onclick="displayAddRemarkBlock()">
 	<h3>Remarks</h3>
 		
 	</div>
@@ -34,7 +35,7 @@
 		<label>Search for employee: </label><input type="text" id="searchId">
 		<button onclick="getEmployeeIndex()">Search</button>
 		<br /><br /><br />
-		<p >Total number of registered Employees: <span id="eCount"></span></p>
+		<p >Total number of registered Employees: <span id="employeeCount"></span></p>
 		<div id="dispFound">
 		<div id="eDetails">
 			<h2>Employee Details</h2>
@@ -46,27 +47,29 @@
 	</div>
 
 	<div id="AddEmployeeBlock">
+		<form onsubmit="return regEmployee();">
 		<br />
-		<input type="text" placeholder="First Name" id="eFirst" />
+		<input type="text" placeholder="First Name" id="eFirst" onblur="checkIfFilled('eFirst')" />
 		<br /><br />
 		
-		<input type="text" placeholder="Last Name" id="eLast" />
+		<input type="text" placeholder="Last Name" id="eLast" onblur="checkIfFilled('eLast')" />
 		<br /><br />
 		
-		<input type="text" placeholder="Age" id="eAge" />
+		<input type="number" placeholder="Age" id="eAge" onblur="checkIfFilled('eAge')" />
 		<br /><br />
 		
-		<input type="text" placeholder="Emp ID" id="eId" />
+		<input type="text" placeholder="Emp ID" id="eId" onblur="checkIfFilled('eId')" />
 		<br /><br />
 		
-		<input type="password" placeholder="Password" id="ePass" />
+		<input type="password" placeholder="Password" id="ePass" onblur="checkIfFilled('ePass')" />
 		<br /><br />
 		
-		<button onclick="regEmployee()">Register Employee</button>
+		<input type="submit" value="Register Employee" >
 		<br />
+		</form>
 	</div>
 
-	<div id="remark_block">
+	<div id="remarksBlock">
 		<label>Search for employee: </label><input type="text" id="rSearch">
 		<button onclick="putRemarks()">Search</button>
 		<br /><br /><br />

@@ -5,6 +5,7 @@
 	<link rel="icon" href="ems.png" type="image/gif" sizes="16x16">
 	<link rel="stylesheet" type="text/css" href="css/login.css">
 	<script type="text/javascript" src="js/login.js"></script>
+	<script type="text/javascript" src="js/validation.js"></script>
 </head>
 <body>
 	<header>
@@ -16,9 +17,9 @@
 		</div>
 		<br />
 		<form onsubmit="return authenticate()">
-		<input type="text" placeholder="USERNAME" id="username" onblur="validateUser()" >
+		<input type="text" placeholder="USERNAME" id="username" onblur="checkIfFilled('username')" >
 		<br /><br />
-		<input type="password" placeholder="PASSWORD" id="password" onblur="validatePass()" >
+		<input type="password" placeholder="PASSWORD" id="password" onblur="checkIfFilled('password')" >
 		<br /><br />
 		<input type="submit" value="Sign In">
 		<br />

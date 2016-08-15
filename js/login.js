@@ -2,43 +2,10 @@
 const hrUsername = "cronj";
 const hrPassword = "hr";
 
-const emptyColor = "red";
-const filledColor = "green";
-
 const EMPTY = "";
 
 localStorage.setItem("signedIn", false);
 localStorage.setItem("eLog", 0);
-
-// signedInentication function
-function validateUser(){
-	
-	var username = document.getElementById('username');
-	
-	if(!username.value)
-	{
-		username.style.borderColor=emptyColor;
-	}
-	else
-	{
-		username.style.borderColor=filledColor;
-	}
-
-	
-}
-
-function validatePass(){
-	
-	var password = document.getElementById('password');
-	if(!password.value)
-	{
-		password.style.borderColor=emptyColor;
-	}
-	else
-	{
-		password.style.borderColor=filledColor;
-	}
-}
 
 function authenticate()
 {

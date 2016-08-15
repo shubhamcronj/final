@@ -6,6 +6,8 @@ if(localStorage.signedIn != "hr" || localStorage.signedIn == undefined)
 	window.location.href = loginPage;
 }
 
+var rem = new Array();
+
 function employee(firstName, lastName, age, eid, epass, remarks){
 	this.firstName = firstName;
 	this.lastName  = lastName;
@@ -25,8 +27,8 @@ var logout = function(){
 var displayViewBlock = function(){
 	document.getElementById('viewBlock').style.display = "block";
 	document.getElementById('AddEmployeeBlock').style.display = "none";
-	document.getElementById('remark_block').style.display = "none";
-	document.getElementById('eCount').innerHTML = localStorage.length-2;	
+	document.getElementById('remarksBlock').style.display = "none";
+	document.getElementById('employeeCount').innerHTML = localStorage.length-2;	
 }
 
 var getEmployeeIndex = function(){
@@ -63,13 +65,13 @@ var getEmployeeIndex = function(){
 var displayAddEmployeeBlock = function(){
 	document.getElementById('viewBlock').style.display = "none";
 	document.getElementById('AddEmployeeBlock').style.display = "block";
-	document.getElementById('remark_block').style.display = "none";
+	document.getElementById('remarksBlock').style.display = "none";
 }
 
-var displayAddRemarksBlock = function(){
+var displayAddRemarkBlock = function(){
 	document.getElementById('viewBlock').style.display = "none";
 	document.getElementById('AddEmployeeBlock').style.display = "none";
-	document.getElementById('remark_block').style.display = "block";
+	document.getElementById('remarksBlock').style.display = "block";
 }
 
 var regEmployee = function(){
@@ -79,12 +81,13 @@ var regEmployee = function(){
 	eId = document.getElementById('eId').value;
 	ePass = document.getElementById('ePass').value;
 
-	eObj = new employee(eFirst, eLast, eAge, eId, ePass, "");
+	eObj = new employee(eFirst, eLast, eAge, eId, ePass, rem);
 	eArray.push(eObj);
 	var l = localStorage.length-2;
 	eKey = "eObject" + l;
 	localStorage.setItem(eKey, JSON.stringify(eObj));
 	alert("Successfully Registered")
+	return false;
 }
 
 var rindex=0;
@@ -117,7 +120,8 @@ var submitRemark = function(){
 
 	objKey = "eObject"+rindex;
 	var myObject = JSON.parse(localStorage.getItem(objKey));
-	myObject.remarks = remark;
+	rem.push(remark);
+	myObject.remarks.push(remark);
 	localStorage.setItem(objKey, JSON.stringify(myObject));
 	alert("Successfully Submitted");
 }
