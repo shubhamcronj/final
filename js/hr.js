@@ -81,13 +81,35 @@ var regEmployee = function(){
 	eId = document.getElementById('eId').value;
 	ePass = document.getElementById('ePass').value;
 
+	var alreadyExist = false;
+	var objKey = "";
+	for(i=0;i<(localStorage.length - 2);i++)
+	{	
+		objKey = "eObject" + i ;
+		myObject = JSON.parse(localStorage.getItem(objKey));
+		if(myObject.eid == eId)
+		{
+			message("Employee with this username already exists");
+			return false;
+			break;
+		}
+	}
+
+	if(!eFirst || !eLast || !eAge || !eId || !ePass)
+	{
+		message("Fill all the details");
+		return false;
+	}
+	else
+	{
 	eObj = new employee(eFirst, eLast, eAge, eId, ePass, rem);
 	eArray.push(eObj);
 	var l = localStorage.length-2;
 	eKey = "eObject" + l;
 	localStorage.setItem(eKey, JSON.stringify(eObj));
-	alert("Successfully Registered")
+	message("Successfully Registered")
 	return false;
+}
 }
 
 var rindex=0;
@@ -124,4 +146,10 @@ var submitRemark = function(){
 	myObject.remarks.push(remark);
 	localStorage.setItem(objKey, JSON.stringify(myObject));
 	alert("Successfully Submitted");
+}
+
+function message(msgText){
+	document.getElementById("errorMessage").innerHTML = msgText;
+	document.getElementById("errorMessageBlock").style.display = "block";
+	hide("errorMessageBlock",3);
 }

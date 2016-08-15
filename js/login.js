@@ -75,10 +75,3 @@ function authenticate()
 }
 return false;
 }
-
-function hide(element, time){
-	setTimeout(function(){
-
-		document.getElementById(element).style.display = "none";
-	  }, time*1000);
-}

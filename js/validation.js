@@ -14,3 +14,8 @@ function checkIfFilled(elementId){
 		element.style.borderColor=filledColor;
 	}
 }
+function hide(element, time){
+	setTimeout(function(){
+		document.getElementById(element).style.display = "none";
+	  }, time*1000);
+}

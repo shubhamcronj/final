@@ -49,7 +49,7 @@
 	<div id="AddEmployeeBlock">
 		<form onsubmit="return regEmployee();">
 		<br />
-		<input type="text" placeholder="First Name" id="eFirst" onblur="checkIfFilled('eFirst')" />
+		<input type="text" placeholder="First Name" id="eFirst" autofocus onblur="checkIfFilled('eFirst')" />
 		<br /><br />
 		
 		<input type="text" placeholder="Last Name" id="eLast" onblur="checkIfFilled('eLast')" />
@@ -70,7 +70,7 @@
 	</div>
 
 	<div id="remarksBlock">
-		<label>Search for employee: </label><input type="text" id="rSearch">
+		<label>Search for employee: </label><input type="search" id="rSearch">
 		<button onclick="putRemarks()">Search</button>
 		<br /><br /><br />
 		<div id="giveRemarks">
@@ -81,6 +81,10 @@
 		<button onclick="submitRemark()">Submit</button>
 		<br/>
 		</div>
+	</div>
+
+	<div id="errorMessageBlock">
+		<p id="errorMessage"></p>
 	</div>
 </div>
 </nav>
