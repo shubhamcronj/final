@@ -1,5 +1,5 @@
 const loginPage = "index.html";
-
+const EMPTY = "";
 
 if(localStorage.signedIn != "hr" || localStorage.signedIn == undefined)
 {
@@ -28,10 +28,15 @@ var displayViewBlock = function(){
 	document.getElementById('viewBlock').style.display = "block";
 	document.getElementById('AddEmployeeBlock').style.display = "none";
 	document.getElementById('remarksBlock').style.display = "none";
-	document.getElementById('employeeCount').innerHTML = localStorage.length-2;	
+	//document.getElementById('viewBlock').style.color = white;
+	//document.getElementById('viewBlock').style.backgroundColor = "#009090";
+	//document.getElementById('viewBlock').style.cursor = "pointer";
+
+	//document.getElementById('employeeCount').innerHTML = localStorage.length-2;	
 }
 
-var getEmployeeIndex = function(){
+function generateSelectList(){
+	document.getElementById('employeeBrowser').innerHTML = "";
 	var searchId = document.getElementById('searchId').value;
 	l = localStorage.length-2;
 	var objKey = "";
@@ -41,25 +46,37 @@ var getEmployeeIndex = function(){
 	{
 		objKey = "eObject"+i;
 		var myObject = JSON.parse(localStorage.getItem(objKey));
-		if(myObject.eid == searchId)
-		{
-			alert("Employee Found");
+		
+			//alert("Employee Found");
 			found = true;
 			index = i;
+			var para = document.createElement('option');
+			para.setAttribute("value",myObject.eid);
+			var element = document.getElementById('employeeBrowser');
+			element.appendChild(para);
+	}
+}
 
+var getEmployeeIndex = function(){		
+	l = localStorage.length-2;
+	var objKey = "";
+	var found = false;
+	var index = 0;
+	for(i=0;i<l;i++)
+	{		
+			objKey = "eObject"+i;
+			var myObject = JSON.parse(localStorage.getItem(objKey))
+			if(myObject.eid == document.getElementById('searchId').value)
+			{
 			document.getElementById('dispFirst').innerHTML = myObject.firstName;
 			document.getElementById('dispLast').innerHTML = myObject.lastName;
 			document.getElementById('dispAge').innerHTML = myObject.age;
 			document.getElementById('dispFound').style.display = "block";
-
+			return false;
 			break;
 		}
 	}
-
-	if(!found)
-		{
-			alert("Not there");
-		}
+	return false;
 }
 
 var displayAddEmployeeBlock = function(){
@@ -107,7 +124,13 @@ var regEmployee = function(){
 	var l = localStorage.length-2;
 	eKey = "eObject" + l;
 	localStorage.setItem(eKey, JSON.stringify(eObj));
-	message("Successfully Registered")
+	message("Successfully Registered");
+	document.getElementById('eFirst').value = EMPTY;
+	document.getElementById('eLast').value = EMPTY;
+	document.getElementById('eAge').value = EMPTY;
+	document.getElementById('eId').value = EMPTY;
+	document.getElementById('ePass').value = EMPTY;
+
 	return false;
 }
 }
@@ -145,7 +168,8 @@ var submitRemark = function(){
 	rem.push(remark);
 	myObject.remarks.push(remark);
 	localStorage.setItem(objKey, JSON.stringify(myObject));
-	alert("Successfully Submitted");
+	message("Successfully Submitted");
+	return false;
 }
 
 function message(msgText){

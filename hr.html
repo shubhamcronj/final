@@ -12,15 +12,15 @@
 		<h1>Employee Management System</h1>
 </header>
 <section>
-	<div onclick="displayViewBlock()">
+	<div onclick="displayViewBlock()" id="viewBlockTab">
 		<h3>View</h3>
 	</div>
 
-	<div onclick="displayAddEmployeeBlock()">
+	<div onclick="displayAddEmployeeBlock()" id="addEmployeeTab" >
 		<h3>Add Employee</h3>
 	</div>
 	
-	<div onclick="displayAddRemarkBlock()">
+	<div onclick="displayAddRemarkBlock()" id="addRemarkTab">
 	<h3>Remarks</h3>
 		
 	</div>
@@ -32,10 +32,14 @@
 <div id="hr_article">
 
 	<div id="viewBlock">
-		<label>Search for employee: </label><input type="text" id="searchId">
-		<button onclick="getEmployeeIndex()">Search</button>
+		<form onsubmit="return getEmployeeIndex()">
+		<label>Select Employee </label><input type="text" id="searchId" list="employeeBrowser" onclick="generateSelectList()">
+		<datalist id="employeeBrowser">
+			</datalist>
+		<input type="submit" value="Show Details">
+		</form>
 		<br /><br /><br />
-		<p >Total number of registered Employees: <span id="employeeCount"></span></p>
+		<!--<p >Total number of registered Employees: <span id="employeeCount"></span></p>-->
 		<div id="dispFound">
 		<div id="eDetails">
 			<h2>Employee Details</h2>
@@ -70,15 +74,18 @@
 	</div>
 
 	<div id="remarksBlock">
-		<label>Search for employee: </label><input type="search" id="rSearch">
-		<button onclick="putRemarks()">Search</button>
+		<form onsubmit="return submitRemark()">
+		<label>Select Employee </label><input type="text" id="searchId" list="employeeBrowser" onclick="generateSelectList()">
+		<datalist id="employeeBrowser">
+		</datalist>
 		<br /><br /><br />
 		<div id="giveRemarks">
 		<div><h3>Enter Remarks</h3></div>
 		<br/>
 		<textarea id="remarkField"></textarea>
 		<br/>
-		<button onclick="submitRemark()">Submit</button>
+		<input type="submit" value="Submit">
+		</form>
 		<br/>
 		</div>
 	</div>
