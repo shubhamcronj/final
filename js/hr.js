@@ -135,42 +135,27 @@ var regEmployee = function(){
 }
 }
 
-var rindex=0;
-var putRemarks = function(){
+function submitRemark(){
 
-	var searchId = document.getElementById('rSearch').value;
-	l = localStorage.length - 2;
-	var objKey = "";
-	var found = false;
+	var remark = document.getElementById('remarkField').value;
+	var selectValue = document.getElementById('rsearchId').value;
+	var l = localStorage.length-2;
+	objKey = "";
 	for(i=0;i<l;i++)
-	{
+	{	
 		objKey = "eObject"+i;
 		var myObject = JSON.parse(localStorage.getItem(objKey));
-
-		if(searchId == myObject.eid){
-			rindex = i;
-			found = true;
-			alert("employee found and selected");
+		if(myObject.eid == selectValue)
+		{
+			myObject.remarks.push(remark);
+			localStorage.setItem(objKey, JSON.stringify(myObject));
+			message("Submitted");
 		}
 	}
-
-	if(!found)
-		{
-			alert("Employee Not there");
-		}
-}
-
-var submitRemark = function(){
-	var remark = document.getElementById('remarkField').value;
-
-	objKey = "eObject"+rindex;
-	var myObject = JSON.parse(localStorage.getItem(objKey));
-	rem.push(remark);
-	myObject.remarks.push(remark);
-	localStorage.setItem(objKey, JSON.stringify(myObject));
-	message("Successfully Submitted");
 	return false;
 }
+
+
 
 function message(msgText){
 	document.getElementById("errorMessage").innerHTML = msgText;
