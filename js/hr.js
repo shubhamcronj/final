@@ -1,5 +1,4 @@
 const loginPage = "index.html";
-const EMPTY = "";
 
 if(localStorage.signedIn != "hr" || localStorage.signedIn == undefined)
 {
@@ -25,9 +24,9 @@ var logout = function(){
 }
 
 var displayViewBlock = function(){
-	document.getElementById('viewBlock').style.display = "block";
-	document.getElementById('AddEmployeeBlock').style.display = "none";
-	document.getElementById('remarksBlock').style.display = "none";
+	document.getElementById('viewBlock').style.display = BLOCK;
+	document.getElementById('AddEmployeeBlock').style.display = NONE;
+	document.getElementById('remarksBlock').style.display = NONE;
 	//document.getElementById('viewBlock').style.color = white;
 	//document.getElementById('viewBlock').style.backgroundColor = "#009090";
 	//document.getElementById('viewBlock').style.cursor = "pointer";
@@ -36,10 +35,10 @@ var displayViewBlock = function(){
 }
 
 function generateSelectList(){
-	document.getElementById('employeeBrowser').innerHTML = "";
-	var searchId = document.getElementById('searchId').value;
+	document.getElementById('employeeBrowser').innerHTML = EMPTY;
+	var searchId = document.getElementsByClassName('searchId').value;
 	l = localStorage.length-2;
-	var objKey = "";
+	var objKey = EMPTY;
 	var found = false;
 	var index = 0;
 	for(i=0;i<l;i++)
@@ -59,19 +58,19 @@ function generateSelectList(){
 
 var getEmployeeIndex = function(){		
 	l = localStorage.length-2;
-	var objKey = "";
+	var objKey = EMPTY;
 	var found = false;
 	var index = 0;
 	for(i=0;i<l;i++)
 	{		
 			objKey = "eObject"+i;
 			var myObject = JSON.parse(localStorage.getItem(objKey))
-			if(myObject.eid == document.getElementById('searchId').value)
+			if(myObject.eid == document.getElementsByClassName('searchId').value)
 			{
 			document.getElementById('dispFirst').innerHTML = myObject.firstName;
 			document.getElementById('dispLast').innerHTML = myObject.lastName;
 			document.getElementById('dispAge').innerHTML = myObject.age;
-			document.getElementById('dispFound').style.display = "block";
+			document.getElementById('dispFound').style.display = BLOCK;
 			return false;
 			break;
 		}
@@ -80,15 +79,15 @@ var getEmployeeIndex = function(){
 }
 
 var displayAddEmployeeBlock = function(){
-	document.getElementById('viewBlock').style.display = "none";
-	document.getElementById('AddEmployeeBlock').style.display = "block";
-	document.getElementById('remarksBlock').style.display = "none";
+	document.getElementById('viewBlock').style.display = NONE;
+	document.getElementById('AddEmployeeBlock').style.display = BLOCK;
+	document.getElementById('remarksBlock').style.display = NONE;
 }
 
 var displayAddRemarkBlock = function(){
-	document.getElementById('viewBlock').style.display = "none";
-	document.getElementById('AddEmployeeBlock').style.display = "none";
-	document.getElementById('remarksBlock').style.display = "block";
+	document.getElementById('viewBlock').style.display = NONE;
+	document.getElementById('AddEmployeeBlock').style.display = NONE;
+	document.getElementById('remarksBlock').style.display = BLOCK;
 }
 
 var regEmployee = function(){
@@ -99,7 +98,7 @@ var regEmployee = function(){
 	ePass = document.getElementById('ePass').value;
 
 	var alreadyExist = false;
-	var objKey = "";
+	var objKey = EMPTY;
 	for(i=0;i<(localStorage.length - 2);i++)
 	{	
 		objKey = "eObject" + i ;
@@ -140,7 +139,7 @@ function submitRemark(){
 	var remark = document.getElementById('remarkField').value;
 	var selectValue = document.getElementById('rsearchId').value;
 	var l = localStorage.length-2;
-	objKey = "";
+	objKey = EMPTY;
 	for(i=0;i<l;i++)
 	{	
 		objKey = "eObject"+i;
@@ -159,6 +158,6 @@ function submitRemark(){
 
 function message(msgText){
 	document.getElementById("errorMessage").innerHTML = msgText;
-	document.getElementById("errorMessageBlock").style.display = "block";
+	document.getElementById("errorMessageBlock").style.display = BLOCK;
 	hide("errorMessageBlock",3);
 }

@@ -1,7 +1,7 @@
 body{
 	margin: 0;
 	padding: 0;
-	background: linear-gradient(to bottom right, #008080, violet);
+	background: linear-gradient(white, #add);
 	text-align: center;
 	height: 100vh;
 }

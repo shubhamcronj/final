@@ -2,8 +2,6 @@
 const hrUsername = "cronj";
 const hrPassword = "hr";
 
-const EMPTY = "";
-
 localStorage.setItem("signedIn", false);
 localStorage.setItem("eLog", 0);
 
@@ -15,14 +13,14 @@ function authenticate()
 	if(!username && !password)
 	{
 		document.getElementById("errorMessage").innerHTML = "Please enter Username and Password";
-		document.getElementById("errorMessageBlock").style.display = "block";
+		document.getElementById("errorMessageBlock").style.display = BLOCK;
 		hide("errorMessageBlock",3);
 		return false;
 	}
 	else if(!password)
 	{
 		document.getElementById("errorMessage").innerHTML = "Please enter Password";
-		document.getElementById("errorMessageBlock").style.display = "block";
+		document.getElementById("errorMessageBlock").style.display = BLOCK;
 		document.getElementById("password").value = EMPTY;
 		hide("errorMessageBlock",3);
 		return false;
@@ -30,7 +28,7 @@ function authenticate()
 	else if(!username)
 	{
 		document.getElementById("errorMessage").innerHTML = "Please enter Username";
-		document.getElementById("errorMessageBlock").style.display = "block";
+		document.getElementById("errorMessageBlock").style.display = BLOCK;
 		document.getElementById("password").value = EMPTY;
 		hide("errorMessageBlock",3);
 		return false;
@@ -66,7 +64,7 @@ function authenticate()
 		if(!flag)
 		{
 			document.getElementById("errorMessage").innerHTML = "Wrong Credentials";
-			document.getElementById("errorMessageBlock").style.display = "block";
+			document.getElementById("errorMessageBlock").style.display = BLOCK;
 			document.getElementById("password").value = EMPTY;
 			hide("errorMessageBlock",3);
 			return false;

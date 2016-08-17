@@ -1,6 +1,10 @@
 const emptyColor = "red";
 const filledColor = "green";
 
+const EMPTY="";
+const NONE="none";
+const BLOCK="block";
+
 function checkIfFilled(elementId){
 	
 	var element = document.getElementById(elementId);
@@ -16,6 +20,6 @@ function checkIfFilled(elementId){
 }
 function hide(element, time){
 	setTimeout(function(){
-		document.getElementById(element).style.display = "none";
+		document.getElementById(element).style.display = NONE;
 	  }, time*1000);
 }
